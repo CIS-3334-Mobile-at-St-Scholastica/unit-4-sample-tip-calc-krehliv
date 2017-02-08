@@ -21,10 +21,12 @@ public class TipCalculator implements CalculatorInterface {
     public void calculate(Double bill, Integer numPeople, boolean goodService) {
         this.bill = bill;
         this.numPeople = numPeople;
-        if (goodService) {
+        if (goodService)
             totalTip = HIGH_TIP_RATE * bill;
-            tipPerPerson = totalTip / numPeople;
-        }
+        else
+            totalTip = LOW_TIP_RATE * bill;
+
+        tipPerPerson = totalTip / numPeople;
         mainView.updateView(totalTip,tipPerPerson);
     }
 }
